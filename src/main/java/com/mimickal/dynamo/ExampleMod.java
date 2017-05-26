@@ -1,4 +1,4 @@
-package com.example.examplemod;
+package com.mimickal.dynamo;
 
 import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.Mod;
