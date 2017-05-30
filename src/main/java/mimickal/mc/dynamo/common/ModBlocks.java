@@ -8,7 +8,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ModBlocks {
 
-    public static BlockBase dynamo;
+    public static BlockDynamo dynamo;
 
     public static void init() {
         dynamo = register(new BlockDynamo(Material.ROCK, "dynamo").setCreativeTab(CreativeTabs.MISC));
