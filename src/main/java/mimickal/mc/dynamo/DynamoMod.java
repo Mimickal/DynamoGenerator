@@ -2,7 +2,6 @@ package mimickal.mc.dynamo;
 
 import mimickal.mc.dynamo.common.CommonProxy;
 import mimickal.mc.dynamo.common.ModBlocks;
-import mimickal.mc.dynamo.common.ModItems;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -36,7 +35,6 @@ public class DynamoMod {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         System.out.println("Loading " + NAME);
-        ModItems.init();
         ModBlocks.init();
     }
 
