@@ -11,7 +11,7 @@ public class ModBlocks {
     public static BlockBase dynamo;
 
     public static void init() {
-        dynamo = register(new BlockBase(Material.ROCK, "dynamo").setCreativeTab(CreativeTabs.MISC));
+        dynamo = register(new BlockDynamo(Material.ROCK, "dynamo").setCreativeTab(CreativeTabs.MISC));
     }
 
     private static <T extends Block>T register(T block, ItemBlock itemBlock) {
