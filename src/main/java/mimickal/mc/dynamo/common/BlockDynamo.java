@@ -16,16 +16,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
-import java.util.Random;
 
 public class BlockDynamo extends BlockContainer implements ItemModelProvider {
 
-    private static final float DRAG = 0.1f;
-    private static final float ADDED = 1f;
-
     protected String name;
-
-    private float spinSpeed = 0f;
 
     public BlockDynamo(Material materialIn, String name) {
         super(materialIn);
@@ -68,20 +62,9 @@ public class BlockDynamo extends BlockContainer implements ItemModelProvider {
             float hitY,
             float hitZ
     ) {
-        spinSpeed += ADDED;
+        TileEntityDynamo tileEntityDynamo = (TileEntityDynamo)worldIn.getTileEntity(pos);
+        tileEntityDynamo.spin();
         return true;
-    }
-
-    @Override
-    public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-        if (spinSpeed > 0f) {
-            spinSpeed -= DRAG;
-            System.out.println("Spin speed " + spinSpeed);
-        }
-
-        if (spinSpeed <= 0f) {
-            spinSpeed = 0f;
-        }
     }
 
 }
