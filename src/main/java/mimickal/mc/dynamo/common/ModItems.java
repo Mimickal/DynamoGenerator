@@ -9,7 +9,7 @@ public class ModItems {
     public static ItemBase dynamo;
 
     public static void init() {
-        dynamo = register(new ItemBase("dynamo").setCreativeTab(CreativeTabs.MISC));
+        //dynamo = register(new ItemBase("dynamo").setCreativeTab(CreativeTabs.MISC));
     }
 
     private static <T extends Item>T register(T item) {
