@@ -2,7 +2,13 @@
   "forge_marker": 1,
   "defaults": {
     "textures": {
-      "all": "dynamo:blocks/dynamo"
+      "particle": "dynamo:blocks/dynamo",
+      "down": "minecraft:blocks/planks_big_oak",
+      "up": "ic2:blocks/wiring/storage/batbox_top",
+      "north": "minecraft:blocks/planks_big_oak",
+      "east": "minecraft:blocks/planks_big_oak",
+      "south": "minecraft:blocks/planks_big_oak",
+      "west": "minecraft:blocks/planks_big_oak"
     }
   },
   "variants": {
