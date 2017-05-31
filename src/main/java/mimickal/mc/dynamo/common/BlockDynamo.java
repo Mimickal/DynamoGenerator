@@ -26,6 +26,9 @@ public class BlockDynamo extends BlockContainer implements ItemModelProvider {
         this.name = name;
         setUnlocalizedName(name);
         setRegistryName(name);
+        setHardness(2.0f);
+        setResistance(6.0f);
+        setHarvestLevel("pickaxe", 1);
     }
 
     @Override
