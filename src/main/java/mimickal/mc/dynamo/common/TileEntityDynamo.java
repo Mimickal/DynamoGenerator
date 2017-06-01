@@ -12,6 +12,7 @@ import net.minecraftforge.common.MinecraftForge;
 public class TileEntityDynamo extends TileEntity implements ITickable, IEnergySource {
 
     private static final int LV_TIER = 1; // Because IC2 doesn't have an enum for its power tiers
+    private static final float MAX_SPEED = 5.0f;
     private static final float DRAG = 0.1f;
     private static final float ADDED_PER_SPIN = 1f;
 
@@ -35,7 +36,6 @@ public class TileEntityDynamo extends TileEntity implements ITickable, IEnergySo
         // Calculate spin speed reduction
         if (spinSpeed > 0f) {
             spinSpeed -= DRAG;
-            System.out.println("Spin speed " + spinSpeed); //FIXME for debug
         }
 
         if (spinSpeed <= 0f) {
@@ -48,13 +48,16 @@ public class TileEntityDynamo extends TileEntity implements ITickable, IEnergySo
      */
     public void spin() {
         spinSpeed += ADDED_PER_SPIN;
-        System.out.println("Spin speed is " + spinSpeed); // FIXME for debug. Remove when done
+
+        if (spinSpeed >= MAX_SPEED) {
+            spinSpeed = MAX_SPEED;
+        }
     }
 
     @Override
     public double getOfferedEnergy() {
         // TODO calculate power based on spin speed
-        return 5f; //FIXME temp value for testing
+        return spinSpeed;
     }
 
     @Override
