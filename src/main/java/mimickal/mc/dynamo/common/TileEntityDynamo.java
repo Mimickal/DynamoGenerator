@@ -17,11 +17,13 @@ import net.minecraftforge.common.MinecraftForge;
 public class TileEntityDynamo extends TileEntity implements ITickable, IEnergySource {
 
     private static final int LV_TIER = 1; // Because IC2 doesn't have an enum for its power tiers
+    private static final int COOLDOWN_MAX = 7;
     private static final float MAX_SPEED = 5.0f;
     private static final float DRAG = 0.075f;
     private static final float ADDED_PER_SPIN = 1f;
 
     private boolean firstUpdate = true;
+    private int cooldown = 0;
     private float spinSpeed = 0f;
 
     /**
@@ -38,6 +40,11 @@ public class TileEntityDynamo extends TileEntity implements ITickable, IEnergySo
             firstUpdate = false;
         }
 
+        // Tick cooldown counter
+        if (cooldown > 0) {
+            cooldown--;
+        }
+
         // Calculate spin speed reduction
         if (spinSpeed > 0f) {
             spinSpeed -= DRAG;
@@ -50,15 +57,23 @@ public class TileEntityDynamo extends TileEntity implements ITickable, IEnergySo
 
     /**
      * "Crank" the dynamo once, increasing the speed it's spinning at.
+     * The dynamo has a cooldown before it can be cranked a second time.
      */
     public void spin(World world, BlockPos pos, EntityPlayer player) {
-        spinSpeed += ADDED_PER_SPIN;
+        // Don't spin if we're still on a cooldown
+        if (cooldown > 0) {
+            return;
+        }
+        cooldown = COOLDOWN_MAX;
 
+        // Increase the dynamo spin speed
+        spinSpeed += ADDED_PER_SPIN;
         if (spinSpeed >= MAX_SPEED) {
             spinSpeed = MAX_SPEED;
         }
 
-        float pitch = spinSpeed;
+        // Play spin sound. Scale pitch to spin speed.
+        float pitch = spinSpeed / 2f;
         world.playSound(player, pos, DynamoMod.SPIN_SOUND, SoundCategory.BLOCKS, 1.0f, pitch);
     }
 
