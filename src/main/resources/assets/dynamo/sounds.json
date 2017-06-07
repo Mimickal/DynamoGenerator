@@ -1,0 +1,10 @@
+{
+  "dynamo_idle": {
+    "category": "block",
+    "sounds": ["dynamo:dynamo_idle"]
+  },
+  "dynamo_spin": {
+    "category": "block",
+    "sounds": ["dynamo:dynamo_spin"]
+  }
+}

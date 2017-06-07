@@ -8,6 +8,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -30,6 +32,9 @@ public class DynamoMod {
     public static final String NAME = "Dynamo Generator";
     public static final String VERSION = "1.0.0";
 
+    public static SoundEvent SPIN_SOUND;
+    public static SoundEvent IDLE_SOUND;
+
     @SidedProxy(
             serverSide = "mimickal.mc.dynamo.common.CommonProxy",
             clientSide = "mimickal.mc.dynamo.client.ClientProxy"
@@ -47,6 +52,7 @@ public class DynamoMod {
 
         initDynamoBlock();
         initDynamoTileEntity();
+        initSounds();
     }
 
     @EventHandler
@@ -88,4 +94,16 @@ public class DynamoMod {
         GameRegistry.registerTileEntity(TileEntityDynamo.class, MOD_ID + "_tile_entity");
     }
 
+    private void initSounds() {
+        ResourceLocation spinLocation = new ResourceLocation(MOD_ID, "dynamo_spin");
+        ResourceLocation idleLocation = new ResourceLocation(MOD_ID, "dynamo_idle");
+
+        SPIN_SOUND = new SoundEvent(spinLocation);
+        IDLE_SOUND = new SoundEvent(idleLocation);
+
+        int id = SoundEvent.REGISTRY.getKeys().size();
+        SoundEvent.REGISTRY.register(id, spinLocation, SPIN_SOUND);
+        id++;
+        SoundEvent.REGISTRY.register(id, idleLocation, IDLE_SOUND);
+    }
 }
