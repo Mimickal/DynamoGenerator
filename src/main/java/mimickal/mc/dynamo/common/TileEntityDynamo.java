@@ -4,16 +4,21 @@ import ic2.api.energy.event.EnergyTileLoadEvent;
 import ic2.api.energy.event.EnergyTileUnloadEvent;
 import ic2.api.energy.tile.IEnergyAcceptor;
 import ic2.api.energy.tile.IEnergySource;
+import mimickal.mc.dynamo.DynamoMod;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 
 public class TileEntityDynamo extends TileEntity implements ITickable, IEnergySource {
 
     private static final int LV_TIER = 1; // Because IC2 doesn't have an enum for its power tiers
     private static final float MAX_SPEED = 5.0f;
-    private static final float DRAG = 0.1f;
+    private static final float DRAG = 0.075f;
     private static final float ADDED_PER_SPIN = 1f;
 
     private boolean firstUpdate = true;
@@ -46,16 +51,15 @@ public class TileEntityDynamo extends TileEntity implements ITickable, IEnergySo
     /**
      * "Crank" the dynamo once, increasing the speed it's spinning at.
      */
-    public void spin() {
+    public void spin(World world, BlockPos pos, EntityPlayer player) {
         spinSpeed += ADDED_PER_SPIN;
 
         if (spinSpeed >= MAX_SPEED) {
             spinSpeed = MAX_SPEED;
         }
-    }
 
-    public float getSpeed() {
-        return spinSpeed;
+        float pitch = spinSpeed;
+        world.playSound(player, pos, DynamoMod.SPIN_SOUND, SoundCategory.BLOCKS, 1.0f, pitch);
     }
 
     @Override

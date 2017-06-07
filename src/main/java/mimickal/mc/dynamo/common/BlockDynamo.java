@@ -12,7 +12,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -66,14 +65,8 @@ public class BlockDynamo extends BlockContainer implements ItemModelProvider {
             float hitY,
             float hitZ
     ) {
-        // Spin the dynamo
         TileEntityDynamo tileEntityDynamo = (TileEntityDynamo)worldIn.getTileEntity(pos);
-        tileEntityDynamo.spin();
-
-        // Play spin sound
-        float pitch = tileEntityDynamo.getSpeed();
-        worldIn.playSound(playerIn, pos, DynamoMod.SPIN_SOUND, SoundCategory.BLOCKS, 1.0f, pitch);
-
+        tileEntityDynamo.spin(worldIn, pos, playerIn);
         return true;
     }
 
