@@ -66,7 +66,7 @@ public class BlockDynamo extends BlockContainer implements ItemModelProvider {
             float hitZ
     ) {
         TileEntityDynamo tileEntityDynamo = (TileEntityDynamo)worldIn.getTileEntity(pos);
-        tileEntityDynamo.spin(worldIn, pos, playerIn);
+        tileEntityDynamo.spin(worldIn, pos);
         return true;
     }
 
