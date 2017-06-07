@@ -23,8 +23,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
         modid = DynamoMod.MOD_ID,
         name = DynamoMod.NAME,
         version = DynamoMod.VERSION,
-        acceptedMinecraftVersions = "[1.10.2]"
-        // TODO add IC2 dependency
+        acceptedMinecraftVersions = "[1.10.2]",
+        dependencies = "required-after:IC2@[2.6.210,)"
 )
 public class DynamoMod {
 
