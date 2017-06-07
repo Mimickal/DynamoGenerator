@@ -59,7 +59,7 @@ public class TileEntityDynamo extends TileEntity implements ITickable, IEnergySo
      * "Crank" the dynamo once, increasing the speed it's spinning at.
      * The dynamo has a cooldown before it can be cranked a second time.
      */
-    public void spin(World world, BlockPos pos) {
+    public void spin() {
         // Don't spin if we're still on a cooldown
         if (cooldown > 0) {
             return;
@@ -74,7 +74,7 @@ public class TileEntityDynamo extends TileEntity implements ITickable, IEnergySo
 
         // Play spin sound. Scale pitch to spin speed.
         float pitch = spinSpeed;
-        world.playSound(null, pos, DynamoMod.SPIN_SOUND, SoundCategory.BLOCKS, 1.0f, pitch);
+        worldObj.playSound(null, pos, DynamoMod.SPIN_SOUND, SoundCategory.BLOCKS, 1.0f, pitch);
     }
 
     @Override
