@@ -54,6 +54,10 @@ public class TileEntityDynamo extends TileEntity implements ITickable, IEnergySo
         }
     }
 
+    public float getSpeed() {
+        return spinSpeed;
+    }
+
     @Override
     public double getOfferedEnergy() {
         // TODO calculate power based on spin speed
