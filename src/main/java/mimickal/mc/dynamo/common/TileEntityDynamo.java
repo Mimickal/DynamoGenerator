@@ -15,9 +15,11 @@ public class TileEntityDynamo extends TileEntity implements ITickable, IEnergySo
 
     private static final int LV_TIER = 1; // Because IC2 doesn't have an enum for its power tiers
     private static final int COOLDOWN_MAX = 7;
-    private static final float MAX_SPEED = 5.0f;
-    private static final float DRAG = 0.05f;
-    private static final float ADDED_PER_SPIN = 0.5f;
+    private static final float MAX_SPEED = 4.0f;
+    private static final float DRAG = 0.02f;
+    private static final float ADDED_PER_SPIN = 0.66666f;
+    private static final float PITCH_MIN = 0.5f;
+    private static final float PITCH_MAX = 2.0f;
 
     private boolean firstUpdate = true;
     private int cooldown = 0;
@@ -70,7 +72,7 @@ public class TileEntityDynamo extends TileEntity implements ITickable, IEnergySo
         }
 
         // Play spin sound. Scale pitch to spin speed.
-        float pitch = spinSpeed;
+        float pitch = (spinSpeed / MAX_SPEED) * (PITCH_MAX - PITCH_MIN) + PITCH_MIN;
         worldObj.playSound(null, pos, DynamoMod.SPIN_SOUND, SoundCategory.BLOCKS, 1.0f, pitch);
     }
 
