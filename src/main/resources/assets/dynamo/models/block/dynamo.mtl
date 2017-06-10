@@ -1,0 +1,8 @@
+newmtl base
+map_Kd minecraft:blocks/planks_oak_big
+
+newmtl wheel_sides
+map_Kd minecraft:blocks/log_oak
+
+newmtl wheel_top
+map_Kd dynamo:blocks/wheel_top
