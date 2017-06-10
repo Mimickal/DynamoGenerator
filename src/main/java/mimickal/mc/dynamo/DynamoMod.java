@@ -77,8 +77,7 @@ public class DynamoMod {
     }
 
     private void initDynamoBlock() {
-        BlockDynamo block = new BlockDynamo(Material.IRON, "dynamo");
-        block.setCreativeTab(CreativeTabs.MISC);
+        BlockDynamo block = new BlockDynamo();
 
         ItemBlock itemBlock = new ItemBlock(block);
         itemBlock.setRegistryName(block.getRegistryName());
