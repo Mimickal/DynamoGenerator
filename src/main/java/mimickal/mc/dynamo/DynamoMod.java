@@ -2,8 +2,6 @@ package mimickal.mc.dynamo;
 
 import ic2.api.item.IC2Items;
 import mimickal.mc.dynamo.common.*;
-import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemBlock;
@@ -48,27 +46,16 @@ public class DynamoMod {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        System.out.println("Loading " + NAME);
-
-        initDynamoBlock();
-        initDynamoTileEntity();
-        initSounds();
+        // Noop
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-        // IC2 recipes are defined via data, and thus need to be fetched on the fly like this
-        ItemStack electricMotor = IC2Items.getItem("crafting", "electric_motor");
-
-        GameRegistry.addRecipe(new ItemStack(dynamo),
-                "P P",
-                "PSP",
-                "PMP",
-                'P', Blocks.PLANKS,
-                'S', Items.STICK,
-                'M', electricMotor
-        );
-
+        System.out.println("Loading " + NAME);
+        initDynamoBlock();
+        initDynamoTileEntity();
+        initSounds();
+        initRecipes();
     }
 
     @EventHandler
@@ -104,5 +91,19 @@ public class DynamoMod {
         SoundEvent.REGISTRY.register(id, spinLocation, SPIN_SOUND);
         id++;
         SoundEvent.REGISTRY.register(id, idleLocation, IDLE_SOUND);
+    }
+
+    private void initRecipes() {
+        // IC2 recipes are defined via data, and thus need to be fetched on the fly like this
+        ItemStack electricMotor = IC2Items.getItem("crafting", "electric_motor");
+
+        GameRegistry.addRecipe(new ItemStack(dynamo),
+                "P P",
+                "PSP",
+                "PMP",
+                'P', Blocks.PLANKS,
+                'S', Items.STICK,
+                'M', electricMotor
+        );
     }
 }

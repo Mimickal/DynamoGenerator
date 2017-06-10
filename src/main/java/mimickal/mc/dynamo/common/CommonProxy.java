@@ -4,8 +4,8 @@ import net.minecraft.item.Item;
 
 public class CommonProxy {
 
-    public void registerItemRenderer(Item item, int meta, String id) {
-        // Noop
+    public void registerItemRenderer(Item item, int meta, String name) {
+        // Noop on server
     }
 
 }
