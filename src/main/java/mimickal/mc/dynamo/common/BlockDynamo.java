@@ -19,27 +19,21 @@ import javax.annotation.Nullable;
 
 public class BlockDynamo extends BlockContainer implements ItemModelProvider {
 
-    protected String name;
+    public static final String NAME = "dynamo";
 
-    public BlockDynamo(Material materialIn, String name) {
-        super(materialIn);
-        this.name = name;
-        setUnlocalizedName(name);
-        setRegistryName(name);
+    public BlockDynamo() {
+        super(Material.IRON);
+        setUnlocalizedName(NAME);
+        setRegistryName(NAME);
         setHardness(2.0f);
         setResistance(6.0f);
         setHarvestLevel("pickaxe", 1);
+        setCreativeTab(CreativeTabs.MISC);
     }
 
     @Override
     public void registerItemModel(Item itemBlock) {
-        DynamoMod.proxy.registerItemRenderer(itemBlock, 0, name);
-    }
-
-    @Override
-    public BlockDynamo setCreativeTab(CreativeTabs tab) {
-        super.setCreativeTab(tab);
-        return this;
+        DynamoMod.proxy.registerItemRenderer(itemBlock, 0, NAME);
     }
 
     @Override
