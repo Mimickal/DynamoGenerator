@@ -99,9 +99,10 @@ public class DynamoMod {
         ItemStack electricMotor = IC2Items.getItem("crafting", "electric_motor");
 
         GameRegistry.addRecipe(new ItemStack(dynamo),
-                "P P",
+                " L ",
                 "PSP",
                 "PMP",
+                'L', Blocks.LOG,
                 'P', Blocks.PLANKS,
                 'S', Items.STICK,
                 'M', electricMotor
