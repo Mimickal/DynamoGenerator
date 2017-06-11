@@ -1,7 +1,8 @@
 {
   "forge_marker": 1,
   "defaults": {
-    "model": "dynamo:dynamo.obj"
+    "model": "dynamo:dynamo.obj",
+    "x": 90
   },
   "variants": {
     "normal": [{}],
