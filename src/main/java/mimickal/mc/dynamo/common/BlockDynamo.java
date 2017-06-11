@@ -1,10 +1,10 @@
 package mimickal.mc.dynamo.common;
 
+import ic2.core.IC2;
 import mimickal.mc.dynamo.DynamoMod;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -28,7 +28,7 @@ public class BlockDynamo extends BlockContainer implements ItemModelProvider {
         setHardness(2.0f);
         setResistance(6.0f);
         setHarvestLevel("pickaxe", 1);
-        setCreativeTab(CreativeTabs.MISC);
+        setCreativeTab(IC2.tabIC2);
     }
 
     @Override
