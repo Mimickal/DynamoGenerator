@@ -27,8 +27,8 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 public class DynamoMod {
 
     public static final String MOD_ID = "dynamo";
-    public static final String NAME = "Dynamo Generator";
-    public static final String VERSION = "1.0.0";
+    public static final String NAME = "Dynamo";
+    public static final String VERSION = "1.10.2-1.0.0";
 
     public static SoundEvent SPIN_SOUND;
     public static SoundEvent IDLE_SOUND;
