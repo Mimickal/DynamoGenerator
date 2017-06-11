@@ -8,9 +8,15 @@ import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 
 public class ClientProxy extends CommonProxy {
+
+    @Override
+    public void init() {
+        OBJLoader.INSTANCE.addDomain(DynamoMod.MOD_ID);
+    }
 
     @Override
     public void registerItemRenderer(Item item, int meta, String name) {
