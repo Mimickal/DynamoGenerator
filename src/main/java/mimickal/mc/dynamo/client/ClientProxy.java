@@ -7,8 +7,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.client.model.obj.OBJLoader;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 
 public class ClientProxy extends CommonProxy {
@@ -28,7 +30,8 @@ public class ClientProxy extends CommonProxy {
         ItemModelMesher mesher = Minecraft.getMinecraft().getRenderItem().getItemModelMesher();
         mesher.register(item, meta, location);
 
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDynamo.class, new TileEntityDynamoRenderer());
+        // TODO We're not animating the model for now.
+        //ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDynamo.class, new TileEntityDynamoRenderer());
     }
 
 }
