@@ -1,5 +1,5 @@
 newmtl base
-map_Kd minecraft:blocks/planks_oak_big
+map_Kd minecraft:blocks/planks_big_oak
 
 newmtl wheel_sides
 map_Kd minecraft:blocks/log_oak
