@@ -1,4 +1,4 @@
-#Artifacts
+### Artifacts
 These are project files for the assets used in the mod. These files are not necessary for the mod itself, but they've been included so the assets can be more easily modified in the future.
 
 Sounds were created using Audacity
