@@ -2,7 +2,6 @@ package mimickal.mc.dynamo;
 
 import ic2.api.item.IC2Items;
 import mimickal.mc.dynamo.common.*;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -16,6 +15,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 
 @Mod(
         modid = DynamoMod.MOD_ID,
@@ -98,14 +98,14 @@ public class DynamoMod {
         // IC2 recipes are defined via data, and thus need to be fetched on the fly like this
         ItemStack electricMotor = IC2Items.getItem("crafting", "electric_motor");
 
-        GameRegistry.addRecipe(new ItemStack(dynamo),
+        GameRegistry.addRecipe(new ShapedOreRecipe(dynamo,
                 " L ",
                 "PSP",
                 "PMP",
-                'L', Blocks.LOG,
-                'P', Blocks.PLANKS,
+                'L', "logWood",
+                'P', "plankWood",
                 'S', Items.STICK,
                 'M', electricMotor
-        );
+        ));
     }
 }
