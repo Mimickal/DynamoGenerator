@@ -33,8 +33,8 @@ public class TileEntityDynamo extends TileEntity implements ITickable, IEnergySo
      */
     @Override
     public void update() {
-        // IC2 requires this on the first tick to hook into the energy grid.
-        if (firstUpdate) {
+        // IC2 needs this to be fired server-side on the first tick it exists to hook into the energy grid.
+        if (firstUpdate && !worldObj.isRemote) {
             MinecraftForge.EVENT_BUS.post(new EnergyTileLoadEvent(this));
             firstUpdate = false;
         }
@@ -115,7 +115,10 @@ public class TileEntityDynamo extends TileEntity implements ITickable, IEnergySo
     }
 
     private void unloadEnergyTile() {
-        MinecraftForge.EVENT_BUS.post(new EnergyTileUnloadEvent(this));
+        // IC2 only needs energy events fired server-side
+        if (!worldObj.isRemote) {
+            MinecraftForge.EVENT_BUS.post(new EnergyTileUnloadEvent(this));
+        }
     }
 
 }
