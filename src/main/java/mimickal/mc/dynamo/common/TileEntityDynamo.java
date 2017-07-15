@@ -78,8 +78,7 @@ public class TileEntityDynamo extends TileEntity implements ITickable, IEnergySo
 
     @Override
     public double getOfferedEnergy() {
-        // TODO calculate power based on spin speed and config
-        return spinSpeed;
+        return spinSpeed * Config.energyMultiplier;
     }
 
     @Override
