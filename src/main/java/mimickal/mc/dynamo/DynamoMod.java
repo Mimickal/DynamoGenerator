@@ -28,7 +28,7 @@ public class DynamoMod {
 
     public static final String MOD_ID = "dynamo";
     public static final String NAME = "Dynamo";
-    public static final String VERSION = "1.10.2-1.0.1";
+    public static final String VERSION = "1.10.2-1.1.0";
 
     public static SoundEvent SPIN_SOUND;
     public static SoundEvent IDLE_SOUND;
