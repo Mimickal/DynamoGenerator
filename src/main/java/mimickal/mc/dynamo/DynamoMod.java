@@ -53,6 +53,7 @@ public class DynamoMod {
     public void init(FMLInitializationEvent event) {
         System.out.println("Loading " + NAME);
         proxy.init();
+        Config.load();
         initDynamoBlock();
         initDynamoTileEntity();
         initSounds();
